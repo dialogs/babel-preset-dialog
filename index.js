@@ -10,6 +10,7 @@ module.exports = {
     // ES Next
     require('babel-plugin-transform-class-properties'),
     require('babel-plugin-transform-object-rest-spread'),
+    require('babel-plugin-transform-export-extensions'),
 
     // ES 2015
     loose(require('babel-plugin-transform-es2015-template-literals')),
