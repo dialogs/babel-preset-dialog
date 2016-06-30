@@ -5,6 +5,7 @@ function loose(plugin) {
 module.exports = {
   plugins: [
     // Helpers
+    require('babel-plugin-lodash'),
     require('babel-plugin-transform-strict-mode'),
 
     // ES Next
