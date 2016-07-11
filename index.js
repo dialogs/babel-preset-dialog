@@ -5,7 +5,6 @@ function loose(plugin) {
 module.exports = {
   plugins: [
     // Helpers
-    require('babel-plugin-lodash'),
     require('babel-plugin-transform-strict-mode'),
 
     // ES Next
@@ -41,5 +40,15 @@ module.exports = {
     require('babel-plugin-transform-react-jsx'),
     require('babel-plugin-transform-flow-strip-types'),
     require('babel-plugin-transform-react-display-name')
-  ]
+  ],
+  env: {
+    production: {
+      // Code optimizers
+      require('babel-plugin-lodash'),
+
+      // React optimizers
+      require('babel-plugin-transform-react-constant-elements'),
+      require('babel-plugin-transform-react-inline-elements')
+    }
+  }
 };
