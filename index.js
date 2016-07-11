@@ -43,12 +43,14 @@ module.exports = {
   ],
   env: {
     production: {
-      // Code optimizers
-      require('babel-plugin-lodash'),
+      plugins: [
+        // Code optimizers
+        require('babel-plugin-lodash'),
 
-      // React optimizers
-      require('babel-plugin-transform-react-constant-elements'),
-      require('babel-plugin-transform-react-inline-elements')
+        // React optimizers
+        require('babel-plugin-transform-react-constant-elements'),
+        require('babel-plugin-transform-react-inline-elements')
+      ]
     }
   }
 };
