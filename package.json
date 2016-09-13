@@ -1,6 +1,6 @@
 {
   "name": "@dlghq/babel-preset-dialog",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Babel preset for Dialog projects",
   "main": "index.js",
   "author": "Nikita Gusakov",
