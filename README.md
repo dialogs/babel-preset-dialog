@@ -37,5 +37,6 @@ Name | Default | Description
 `esnext` | `true` | Enable ESNext syntax
 `strict` | `true` | Add `"use strict";` to each file
 `minify` | `false` | Enable minification plugins
+`modules` | `true` | Enable ES2015 modules transforms
 `optimize` | `false` | Enable optimization plugins
 `typecheck` | `false` | Enable typecheck plugin

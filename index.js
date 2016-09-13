@@ -6,6 +6,7 @@ const defaultOptions = {
   esnext: true,
   strict: true,
   minify: false,
+  modules: true,
   optimize: false,
   typecheck: false
 };
@@ -19,6 +20,7 @@ function preset(context, options) {
     esnext,
     strict,
     minify,
+    modules,
     optimize,
     typecheck
   } = Object.assign({}, defaultOptions, options);
@@ -70,9 +72,14 @@ function preset(context, options) {
       require('babel-plugin-transform-es2015-parameters'),
       [require('babel-plugin-transform-es2015-destructuring'), { loose }],
       require('babel-plugin-transform-es2015-block-scoping'),
-      require('babel-plugin-transform-es2015-typeof-symbol'),
-      [require('babel-plugin-transform-es2015-modules-commonjs'), { loose }]
+      require('babel-plugin-transform-es2015-typeof-symbol')
     );
+
+    if (modules) {
+      plugins.push(
+        [require('babel-plugin-transform-es2015-modules-commonjs'), { loose }]
+      );
+    }
   }
 
   if (typecheck) {
