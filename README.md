@@ -38,5 +38,6 @@ Name | Default | Description
 `strict` | `true` | Add `"use strict";` to each file
 `minify` | `false` | Enable minification plugins
 `modules` | `true` | Enable ES2015 modules transforms
+`helpers` | `false` | Enable babel external helpers
 `optimize` | `false` | Enable optimization plugins
 `typecheck` | `false` | Enable typecheck plugin

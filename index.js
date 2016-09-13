@@ -7,6 +7,7 @@ const defaultOptions = {
   strict: true,
   minify: false,
   modules: true,
+  helpers: false,
   optimize: false,
   typecheck: false
 };
@@ -21,6 +22,7 @@ function preset(context, options) {
     strict,
     minify,
     modules,
+    helpers,
     optimize,
     typecheck
   } = Object.assign({}, defaultOptions, options);
@@ -80,6 +82,12 @@ function preset(context, options) {
         [require('babel-plugin-transform-es2015-modules-commonjs'), { loose }]
       );
     }
+  }
+
+  if (helpers) {
+    plugins.push(
+      require('babel-plugin-external-helpers')
+    );
   }
 
   if (typecheck) {
