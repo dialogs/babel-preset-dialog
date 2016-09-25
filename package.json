@@ -4,6 +4,10 @@
   "description": "Babel preset for Dialog projects",
   "main": "index.js",
   "author": "Nikita Gusakov",
+  "scripts": {
+    "postversion": "npm publish",
+    "postpublish": "git push --follow-tags"
+  },
   "dependencies": {
     "babel-plugin-check-es2015-constants": "6.8.0",
     "babel-plugin-external-helpers": "6.8.0",
