@@ -5,7 +5,6 @@ const defaultOptions = {
   es2015: true,
   esnext: true,
   strict: true,
-  minify: false,
   runtime: true,
   modules: true,
   helpers: false,
@@ -22,7 +21,6 @@ function preset(context, options) {
     es2015,
     esnext,
     strict,
-    minify,
     runtime,
     modules,
     helpers,
@@ -32,7 +30,6 @@ function preset(context, options) {
   } = Object.assign({}, defaultOptions, options);
 
   const plugins = [];
-  const presets = [];
 
   if (strict) {
     plugins.push(
@@ -132,12 +129,6 @@ function preset(context, options) {
     plugins.push(
       require('babel-plugin-lodash')
     );
-  }
-
-  if (minify) {
-    presets.push(
-      require('babel-preset-babili')
-    )
   }
 
   return {
