@@ -30,14 +30,15 @@ Options
 
 Name | Default | Description
 ---- | ------- | -----------
-`spec` | `false` | Enable spec compliance
-`loose` | `true` | Enable loose mode
-`react` | `true` | Enable react transforms
-`es2015` | `true` | Enable ES2015 syntax
-`esnext` | `true` | Enable ESNext syntax
-`strict` | `true` | Add `"use strict";` to each file
-`minify` | `false` | Enable minification plugins
-`modules` | `true` | Enable ES2015 modules transforms
-`helpers` | `false` | Enable babel external helpers
-`optimize` | `false` | Enable optimization plugins
-`typecheck` | `false` | Enable typecheck plugin
+`spec` | `false` | Enable spec compliance.
+`loose` | `true` | Enable loose mode.
+`react` | `true` | Enable react transforms.
+`es2015` | `true` | Enable ES2015 syntax.
+`esnext` | `true` | Enable ESNext syntax.
+`strict` | `true` | Add `"use strict";` to each file.
+`runtime` | `true` | Enable babel runtime. Requires `babel-runtime` package.
+`modules` | `true` | Enable ES2015 modules transforms.
+`helpers` | `false` | Enable babel external helpers.
+`optimize` | `false` | Enable optimization plugins.
+`typecheck` | `false` | Enable typecheck plugin.
+`development` | `false` | Enable development mode plugins.
