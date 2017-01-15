@@ -6,10 +6,12 @@ const defaultOptions = {
   esnext: true,
   strict: true,
   minify: false,
+  runtime: true,
   modules: true,
   helpers: false,
   optimize: false,
-  typecheck: false
+  typecheck: false,
+  development: false
 };
 
 function preset(context, options) {
@@ -21,10 +23,12 @@ function preset(context, options) {
     esnext,
     strict,
     minify,
+    runtime,
     modules,
     helpers,
     optimize,
-    typecheck
+    typecheck,
+    development
   } = Object.assign({}, defaultOptions, options);
 
   const plugins = [];
@@ -35,11 +39,23 @@ function preset(context, options) {
       require('babel-plugin-transform-strict-mode')
     );
   }
+  
+  if (runtime) {
+    plugins.push(
+      [require.resolve('babel-plugin-transform-runtime'), {
+        helpers: true,
+        polyfill: true,
+        regenerator: false,
+        // Resolve the Babel runtime relative to the config.
+        moduleName: path.dirname(require.resolve('babel-runtime/package'))
+      }]
+    );
+  }
 
   if (esnext) {
     plugins.push(
       require('babel-plugin-transform-class-properties'),
-      require('babel-plugin-transform-object-rest-spread'),
+      [require('babel-plugin-transform-object-rest-spread'), { useBuiltIns: runtime }],
       require('babel-plugin-transform-export-extensions')
     );
   }
@@ -48,10 +64,26 @@ function preset(context, options) {
     plugins.push(
       require('babel-plugin-syntax-jsx'),
       require('babel-plugin-syntax-flow'),
-      require('babel-plugin-transform-react-jsx'),
+      [require('babel-plugin-transform-react-jsx'), { useBuiltIns: runtime }],
       require('babel-plugin-transform-flow-strip-types'),
       require('babel-plugin-transform-react-display-name')
     );
+    
+    if (development) {
+      plugins.push(
+        // Adds component stack to warning messages
+        require.resolve('babel-plugin-transform-react-jsx-source'),
+        // Adds __self attribute to JSX which React will use for some warnings
+        require.resolve('babel-plugin-transform-react-jsx-self')
+      );
+    }
+    
+    if (optimize) {
+      plugins.push(
+        require('babel-plugin-transform-react-constant-elements'),
+        require('babel-plugin-transform-react-inline-elements')
+      );
+    }
   }
 
   if (es2015) {
@@ -99,13 +131,6 @@ function preset(context, options) {
   if (optimize) {
     plugins.push(
       require('babel-plugin-lodash')
-    );
-  }
-
-  if (optimize && react) {
-    plugins.push(
-      require('babel-plugin-transform-react-constant-elements'),
-      require('babel-plugin-transform-react-inline-elements')
     );
   }
 
