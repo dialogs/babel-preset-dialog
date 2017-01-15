@@ -1,6 +1,6 @@
 {
   "name": "@dlghq/babel-preset-dialog",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "index.js",
   "author": "Nikita Gusakov <gusnkt@gmail.com>",
   "license": "Apache-2.0",
