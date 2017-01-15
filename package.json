@@ -1,9 +1,23 @@
 {
   "name": "@dlghq/babel-preset-dialog",
   "version": "2.7.0",
-  "description": "Babel preset for Dialog projects",
   "main": "index.js",
-  "author": "Nikita Gusakov",
+  "author": "Nikita Gusakov <gusnkt@gmail.com>",
+  "license": "Apache-2.0",
+  "description": "Babel preset for dialog projects",
+  "keywords": [
+    "babel",
+    "preset",
+    "dialog"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dialogs/babel-preset-dialog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dialogs/babel-preset-dialog/issues"
+  },
+  "homepage": "https://github.com/dialogs/babel-preset-dialog",
   "scripts": {
     "postversion": "npm publish",
     "postpublish": "git push --follow-tags"

@@ -1,6 +1,8 @@
 Babel Preset
 ============
 
+Babel preset for [dialog](https://dlg.im) projects.
+
 Installation
 ------------
 
@@ -42,3 +44,7 @@ Name | Default | Description
 `optimize` | `false` | Enable optimization plugins.
 `typecheck` | `false` | Enable typecheck plugin.
 `development` | `false` | Enable development mode plugins.
+
+License
+-------
+[Apache-2.0](LICENSE)
