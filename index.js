@@ -1,3 +1,5 @@
+const path = require('path');
+
 const defaultOptions = {
   spec: false,
   loose: true,
@@ -5,9 +7,9 @@ const defaultOptions = {
   es2015: true,
   esnext: true,
   strict: true,
+  helpers: false,
   runtime: true,
   modules: true,
-  helpers: false,
   optimize: false,
   typecheck: false,
   development: false
@@ -21,9 +23,9 @@ function preset(context, options) {
     es2015,
     esnext,
     strict,
-    runtime,
     modules,
     helpers,
+    runtime,
     optimize,
     typecheck,
     development
@@ -34,6 +36,12 @@ function preset(context, options) {
   if (strict) {
     plugins.push(
       require('babel-plugin-transform-strict-mode')
+    );
+  }
+  
+  if (helpers) {
+    plugins.push(
+      require('babel-plugin-external-helpers')
     );
   }
   
@@ -111,12 +119,6 @@ function preset(context, options) {
         [require('babel-plugin-transform-es2015-modules-commonjs'), { loose }]
       );
     }
-  }
-
-  if (helpers) {
-    plugins.push(
-      require('babel-plugin-external-helpers')
-    );
   }
 
   if (typecheck) {
