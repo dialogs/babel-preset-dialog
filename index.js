@@ -2,6 +2,7 @@ const path = require('path');
 
 const defaultOptions = {
   spec: false,
+  flow: false,
   loose: true,
   react: true,
   es2015: true,
@@ -18,6 +19,7 @@ const defaultOptions = {
 function preset(context, options) {
   const {
     spec,
+    flow,
     loose,
     react,
     es2015,
@@ -65,12 +67,17 @@ function preset(context, options) {
     );
   }
 
+  plugins.push(require('babel-plugin-syntax-flow'));
+  if (flow) {
+    plugins.push(require('babel-plugin-transform-flow-comments'));
+  } else {
+    plugins.push(require('babel-plugin-transform-flow-strip-types'));
+  }
+
   if (react) {
     plugins.push(
       require('babel-plugin-syntax-jsx'),
-      require('babel-plugin-syntax-flow'),
       [require('babel-plugin-transform-react-jsx'), { useBuiltIns: runtime }],
-      require('babel-plugin-transform-flow-strip-types'),
       require('babel-plugin-transform-react-display-name')
     );
     

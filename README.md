@@ -33,6 +33,7 @@ Options
 Name | Default | Description
 ---- | ------- | -----------
 `spec` | `false` | Enable spec compliance.
+`flow` | `false` | Convert flow-types to comments.
 `loose` | `true` | Enable loose mode.
 `react` | `true` | Enable react transforms.
 `es2015` | `true` | Enable ES2015 syntax.
