@@ -20,7 +20,8 @@
   "homepage": "https://github.com/dialogs/babel-preset-dialog",
   "scripts": {
     "postversion": "npm publish",
-    "postpublish": "git push --follow-tags"
+    "postpublish": "git push --follow-tags",
+    "fmt": "prettier --write --loglevel warn \"*.{js,md,json}\""
   },
   "dependencies": {
     "@babel/plugin-check-constants": "7.0.0-beta.38",
@@ -62,5 +63,8 @@
     "@babel/plugin-transform-unicode-regex": "7.0.0",
     "@babel/runtime": "7.1.2",
     "babel-plugin-lodash": "3.3.4"
+  },
+  "devDependencies": {
+    "prettier": "1.14.3"
   }
 }
