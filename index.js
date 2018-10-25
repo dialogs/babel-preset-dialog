@@ -48,9 +48,7 @@ function preset(context, options) {
       require.resolve("@babel/plugin-transform-runtime"),
       {
         helpers: true,
-        regenerator: false,
-        // Resolve the Babel runtime relative to the config.
-        moduleName: path.dirname(require.resolve("@babel/runtime/package"))
+        regenerator: false
       }
     ]);
   }
