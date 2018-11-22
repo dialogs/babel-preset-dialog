@@ -61,6 +61,7 @@ function preset(context, options) {
       require("babel-plugin-transform-class-properties"),
       require("babel-plugin-syntax-async-functions"),
       require("babel-plugin-transform-async-functions"),
+      require("babel-plugin-transform-regenerator"),
       [
         require("babel-plugin-transform-object-rest-spread"),
         { useBuiltIns: runtime }
