@@ -23,6 +23,9 @@
     "postpublish": "git push --follow-tags",
     "fmt": "prettier --write --loglevel warn \"*.{js,md,json}\""
   },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0"
+  },
   "dependencies": {
     "@babel/plugin-check-constants": "7.0.0-beta.38",
     "@babel/plugin-external-helpers": "7.0.0",
