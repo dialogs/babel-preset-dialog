@@ -1,4 +1,7 @@
-const path = require('path');
+/*
+ * Copyright 2018 Dialog LLC <info@dlg.im>
+ * @flow
+ */
 
 const defaultOptions = {
   spec: false,
@@ -16,7 +19,9 @@ const defaultOptions = {
   development: false,
 };
 
-function preset(context, options) {
+module.exports = function(api, options) {
+  api.assertVersion(7);
+
   const {
     spec,
     flow,
@@ -111,7 +116,6 @@ function preset(context, options) {
       [require('@babel/plugin-transform-for-of'), { loose }],
       require('@babel/plugin-transform-sticky-regex'),
       require('@babel/plugin-transform-unicode-regex'),
-      require('@babel/plugin-check-constants'),
       [require('@babel/plugin-transform-spread'), { loose }],
       require('@babel/plugin-transform-parameters'),
       [require('@babel/plugin-transform-destructuring'), { loose }],
@@ -138,6 +142,4 @@ function preset(context, options) {
   return {
     plugins,
   };
-}
-
-module.exports = preset;
+};
