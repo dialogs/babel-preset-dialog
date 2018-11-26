@@ -1,5 +1,4 @@
 const path = require('path');
-const presetEnv = require('@babel/preset-env');
 
 const defaultOptions = {
   flow: false,
@@ -93,10 +92,16 @@ function preset(context, options) {
     plugins.push(require('babel-plugin-lodash'));
   }
 
-  return {
-    ...presetEnv(options),
+  const preset = {
+    presets: [require('@babel/preset-env')],
     plugins,
   };
+
+  console.log({ preset });
+
+  return preset;
 }
+
+preset({}, {});
 
 module.exports = preset;
