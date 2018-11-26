@@ -1,5 +1,4 @@
 const path = require('path');
-const { default: presetEnv } = require('@babel/preset-env');
 
 const defaultOptions = {
   flow: false,
@@ -94,7 +93,7 @@ function preset(context, options) {
   }
 
   const preset = {
-    ...presetEnv(context, options),
+    presets: require('@babel/preset-env'),
     plugins,
   };
 
