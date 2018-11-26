@@ -96,7 +96,7 @@ function preset(context, options) {
   }
 
   const preset = {
-    presets: [presetEnv],
+    ...presetEnv(context, options),
     plugins,
   };
 
@@ -104,7 +104,5 @@ function preset(context, options) {
 
   return preset;
 }
-
-preset({}, {});
 
 module.exports = preset;
