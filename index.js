@@ -93,7 +93,7 @@ function preset(context, options) {
   }
 
   const preset = {
-    presets: require('@babel/preset-env'),
+    presets: [require('@babel/preset-env')],
     plugins,
   };
 
