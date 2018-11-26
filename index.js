@@ -10,6 +10,7 @@ const defaultOptions = {
   optimize: false,
   // typecheck: false,
   development: false,
+  useBuiltIns: 'usage',
 };
 
 function preset(context, options) {
