@@ -100,8 +100,6 @@ function preset(context, options) {
     plugins,
   };
 
-  console.log({ preset });
-
   return preset;
 }
 
