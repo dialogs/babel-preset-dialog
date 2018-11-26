@@ -25,7 +25,7 @@ function preset(context, options) {
     development,
   } = Object.assign({}, defaultOptions, options);
 
-  const plugins = [];
+  const plugins = [require('@babel/plugin-transform-regenerator')];
 
   if (strict) {
     plugins.push(require('@babel/plugin-transform-strict-mode'));
@@ -40,7 +40,7 @@ function preset(context, options) {
       require.resolve('@babel/plugin-transform-runtime'),
       {
         helpers: true,
-        regenerator: false,
+        regenerator: true,
       },
     ]);
   }
