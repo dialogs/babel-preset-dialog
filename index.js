@@ -1,8 +1,6 @@
 const path = require('path');
 const { default: presetEnv } = require('@babel/preset-env');
 
-console.log({ presetEnv });
-
 const defaultOptions = {
   flow: false,
   react: true,
