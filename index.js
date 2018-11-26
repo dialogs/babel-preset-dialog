@@ -1,16 +1,13 @@
 const path = require('path');
+const presetEnv = require('@babel/preset-env');
 
 const defaultOptions = {
-  spec: false,
   flow: false,
-  loose: true,
   react: true,
-  es2015: true,
   esnext: true,
   strict: true,
   helpers: false,
   runtime: true,
-  modules: true,
   optimize: false,
   // typecheck: false,
   development: false,
@@ -18,14 +15,10 @@ const defaultOptions = {
 
 function preset(context, options) {
   const {
-    spec,
     flow,
-    loose,
     react,
-    es2015,
     esnext,
     strict,
-    modules,
     helpers,
     runtime,
     optimize,
@@ -56,10 +49,6 @@ function preset(context, options) {
   if (esnext) {
     plugins.push(
       require('@babel/plugin-proposal-class-properties'),
-      [
-        require('@babel/plugin-syntax-object-rest-spread'),
-        { useBuiltIns: runtime },
-      ],
       require('@babel/plugin-proposal-export-default-from'),
       require('@babel/plugin-proposal-export-namespace-from'),
     );
@@ -96,37 +85,6 @@ function preset(context, options) {
     }
   }
 
-  if (es2015) {
-    plugins.push(
-      [require('@babel/plugin-transform-template-literals'), { loose, spec }],
-      require('@babel/plugin-transform-literals'),
-      require('@babel/plugin-transform-function-name'),
-      [require('@babel/plugin-transform-arrow-functions'), { spec }],
-      require('@babel/plugin-transform-block-scoped-functions'),
-      [require('@babel/plugin-transform-classes'), { loose }],
-      require('@babel/plugin-transform-object-super'),
-      require('@babel/plugin-transform-shorthand-properties'),
-      require('@babel/plugin-transform-duplicate-keys'),
-      [require('@babel/plugin-transform-computed-properties'), { loose }],
-      [require('@babel/plugin-transform-for-of'), { loose }],
-      require('@babel/plugin-transform-sticky-regex'),
-      require('@babel/plugin-transform-unicode-regex'),
-      require('@babel/plugin-check-constants'),
-      [require('@babel/plugin-transform-spread'), { loose }],
-      require('@babel/plugin-transform-parameters'),
-      [require('@babel/plugin-transform-destructuring'), { loose }],
-      require('@babel/plugin-transform-block-scoping'),
-      require('@babel/plugin-transform-typeof-symbol'),
-    );
-
-    if (modules) {
-      plugins.push([
-        require('@babel/plugin-transform-modules-commonjs'),
-        { loose },
-      ]);
-    }
-  }
-
   // if (typecheck) {
   //   plugins.push(require("babel-plugin-typecheck"));
   // }
@@ -136,6 +94,7 @@ function preset(context, options) {
   }
 
   return {
+    ...presetEnv(options),
     plugins,
   };
 }
