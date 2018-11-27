@@ -103,6 +103,7 @@ module.exports = function(api, options) {
 
   if (es2015) {
     plugins.push(
+      require('@babel/plugin-transform-regenerator'),
       [require('@babel/plugin-transform-template-literals'), { loose, spec }],
       require('@babel/plugin-transform-literals'),
       require('@babel/plugin-transform-function-name'),
