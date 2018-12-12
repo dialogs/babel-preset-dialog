@@ -58,6 +58,13 @@ module.exports = function(api, options) {
     ]);
   }
 
+  plugins.push(require('@babel/plugin-syntax-flow'));
+  if (flow) {
+    plugins.push(require('@babel/plugin-transform-flow-comments'));
+  } else {
+    plugins.push(require('@babel/plugin-transform-flow-strip-types'));
+  }
+
   if (esnext) {
     plugins.push(
       require('@babel/plugin-proposal-class-properties'),
@@ -68,13 +75,6 @@ module.exports = function(api, options) {
       require('@babel/plugin-proposal-export-default-from'),
       require('@babel/plugin-proposal-export-namespace-from'),
     );
-  }
-
-  plugins.push(require('@babel/plugin-syntax-flow'));
-  if (flow) {
-    plugins.push(require('@babel/plugin-transform-flow-comments'));
-  } else {
-    plugins.push(require('@babel/plugin-transform-flow-strip-types'));
   }
 
   if (react) {
