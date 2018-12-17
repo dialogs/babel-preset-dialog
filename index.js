@@ -68,6 +68,7 @@ module.exports = function(api, options) {
   if (esnext) {
     plugins.push(
       require('@babel/plugin-proposal-class-properties'),
+      require('@babel/plugin-proposal-private-methods'),
       [
         require('@babel/plugin-syntax-object-rest-spread'),
         { useBuiltIns: runtime },
