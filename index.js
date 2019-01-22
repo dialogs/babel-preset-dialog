@@ -119,6 +119,7 @@ module.exports = function(api, options) {
       require('@babel/plugin-transform-sticky-regex'),
       require('@babel/plugin-transform-unicode-regex'),
       [require('@babel/plugin-transform-spread'), { loose }],
+      [require('@babel/plugin-proposal-object-rest-spread'), { loose }],
       require('@babel/plugin-transform-parameters'),
       [require('@babel/plugin-transform-destructuring'), { loose }],
       require('@babel/plugin-transform-block-scoping'),
