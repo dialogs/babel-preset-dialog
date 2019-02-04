@@ -124,6 +124,7 @@ module.exports = function(api, options) {
       [require('@babel/plugin-transform-destructuring'), { loose }],
       require('@babel/plugin-transform-block-scoping'),
       require('@babel/plugin-transform-typeof-symbol'),
+      require('@babel/plugin-transform-exponentiation-operator'),
     );
 
     if (modules) {
