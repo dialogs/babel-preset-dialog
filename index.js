@@ -125,6 +125,8 @@ module.exports = function(api, options) {
       require('@babel/plugin-transform-block-scoping'),
       require('@babel/plugin-transform-typeof-symbol'),
       require('@babel/plugin-transform-exponentiation-operator'),
+      require('@babel/plugin-proposal-nullish-coalescing-operator'),
+      require('@babel/plugin-proposal-optional-chaining'),
     );
 
     if (modules) {
