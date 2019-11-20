@@ -17,6 +17,7 @@ const defaultOptions = {
   optimize: false,
   // typecheck: false,
   development: false,
+  dynamicImport: true,
 };
 
 module.exports = function(api, options) {
@@ -36,6 +37,7 @@ module.exports = function(api, options) {
     optimize,
     typecheck,
     development,
+    dynamicImport,
   } = Object.assign({}, defaultOptions, options);
 
   const plugins = [];
@@ -143,6 +145,10 @@ module.exports = function(api, options) {
 
   if (optimize) {
     plugins.push(require('babel-plugin-lodash'));
+  }
+
+  if (dynamicImport) {
+    plugins.push(require('@babel/plugin-syntax-dynamic-import'));
   }
 
   return {
